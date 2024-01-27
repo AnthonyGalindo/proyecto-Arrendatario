@@ -1,0 +1,61 @@
+
+
+.custom-button {
+  width: max-content;
+  max-width: 150px;
+  margin: 0 0 25px 0;
+  padding: 5px;
+  background-color: rgb(70, 0, 128);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.custom-button2 {
+  width: max-content;
+  max-width: 600px;
+  margin: 0 0 25px 0;
+  padding: 15px;
+  background-color: rgb(70, 0, 128);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  font-size:  large;
+}
+
+.custom-button a {
+  text-decoration: none;
+  color: inherit; /* Para heredar el color del texto del botón */
+}
+/* checkbox */
+
+
+
+input#file-upload-button{
+  background-color: green;
+}
+
+.custom-img {
+  width: 100%; /* Ajusta el ancho según tus necesidades */
+  height: 250px;
+}
+
+
+/* checkbox */
+
+.ancho{
+  width: 350px;
+}
+
+.blues{
+margin: 0 auto;
+width: 70rem;
+padding: 15px;
+border: 5px solid rgba(75, 9, 108, 0.33);
+margin-top: 20px;
+}
+
+

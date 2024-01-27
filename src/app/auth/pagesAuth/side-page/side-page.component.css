@@ -1,0 +1,17 @@
+.algo{
+
+  z-index: 1;
+}
+body {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+}
+
+.profile-avatar {
+  width: 50px;  /* Ajusta el ancho según tus preferencias */
+  height: 50px; /* Ajusta la altura según tus preferencias */
+  border-radius: 50%;  /* Hace la imagen redonda (esto es común para avatares) */
+  object-fit: cover;   /* Ajusta cómo la imagen debe ajustarse dentro del contenedor */
+  margin-right: 8px;   /* Opcional: Agrega un margen derecho para separarla de otros elementos */
+}

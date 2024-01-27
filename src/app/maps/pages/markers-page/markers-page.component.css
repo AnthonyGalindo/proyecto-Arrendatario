@@ -1,0 +1,71 @@
+ #map {
+  width: 75vw;
+  height: 75vh;
+  z-index: 999999;
+
+   position: absolute;
+
+   left: 55%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.list-group {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+
+.agregaMarcador {
+  position: fixed;
+  bottom: 50px;
+  right: 70px;
+  z-index: 2;
+}
+
+.mapboxgl-canvas{
+  height: 100% !important;
+  width: 100% !important;
+}
+
+
+/* zoom */
+
+.floating-range {
+  position: absolute;
+  bottom: 15px;
+  left: 295px;
+  z-index: 999;
+  width: 500px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.floating-content {
+  display: flex;
+  align-items: center;
+}
+
+/* aqui para estilos de guardar cordenadas marcadores */
+.pato{
+  position: absolute;
+  bottom: 50px;
+  right: 242px;
+  z-index: 999;
+  border-radius: 2px;
+
+}
+
+.cerrar{
+  position: absolute;
+  bottom: 50px;
+  left: 190px;
+  z-index: 999;
+  border-radius: 2px;
+
+}

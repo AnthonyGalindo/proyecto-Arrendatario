@@ -1,0 +1,12 @@
+img {
+  max-width: 60%; /* La imagen no será más ancha que su contenedor */
+  height: auto;
+  z-index: 999;  /* Mantiene la proporción de aspecto original */
+}
+
+mat-card {
+  margin-bottom: 10px;
+  display: flex;
+align-items: center;
+justify-content: center;/* Ajusta el valor según el espacio que desees entre los cards */
+}

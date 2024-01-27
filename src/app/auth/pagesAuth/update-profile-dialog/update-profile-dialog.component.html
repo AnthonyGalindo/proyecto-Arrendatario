@@ -1,0 +1,82 @@
+<p>update-profile-dialog works!</p>
+
+
+
+<div style="margin: 20px;">
+
+  <div class="form-container ">
+
+    <div>
+
+      <div class="form-wrapper">
+
+
+          <form class="form" [formGroup]="formActualizarUsuario" (ngSubmit)="OnSubmitUsuario()">
+            <div class="flex flex-column">
+
+                <span class="text-lg mb-4">Nombre de Usuario</span>
+
+                <mat-form-field>
+                  <mat-label>Nombre Usuario</mat-label>
+                  <input matInput placeholder="Nombre de usuario" formControlName="usuario" #inputFieldUsuario >
+                </mat-form-field>
+
+                <button mat-button mat-flat-button color="primary" type="submit" >
+                  <mat-icon>save</mat-icon>
+                  Actualizar
+                </button>
+
+              </div>
+
+          </form>
+          <!-- segundo formulario -->
+          <form  class="form" [formGroup]="formActualizarTelefono" (ngSubmit)="OnSubmitTelefono()" >
+            <div class="flex flex-column">
+            <span class="text-lg mb-4">Numero de Telefono</span>
+
+            <mat-form-field>
+              <mat-label>Numero de Telefono</mat-label>
+              <input matInput placeholder="Número de Teléfono" formControlName="telefono" #inputFieldTelefono>
+            </mat-form-field>
+
+            <button mat-button mat-flat-button color="primary" type="submit">
+              <mat-icon>save</mat-icon>
+              Actualizar
+            </button>
+
+            </div>
+          </form>
+
+      </div>
+        <!-- Tercer formulario -->
+      <div class="flex flex-column mt-5">
+
+          <form  [formGroup]="formActualizaCorreo" (ngSubmit)="OnSubmitCorreo()">
+            <div class="flex flex-column">
+                <span class="text-lg mb-4">Email</span>
+
+                <mat-form-field>
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" formControlName="email"  #inputFieldEmail>
+                </mat-form-field>
+
+                <button mat-button mat-flat-button color="primary" type="submit">
+                  <mat-icon>save</mat-icon>
+                  Actualizar Email
+                </button>
+            </div>
+          </form>
+
+
+    </div>
+
+  </div>
+
+  </div>
+
+  <button class="butCerrar" mat-button mat-flat-button color="primary" type="button" (click)="cerrarDialog()">
+    <mat-icon>close</mat-icon>
+    Cerrar
+  </button>
+
+</div>

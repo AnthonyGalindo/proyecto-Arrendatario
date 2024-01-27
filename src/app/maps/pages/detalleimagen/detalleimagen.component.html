@@ -1,0 +1,22 @@
+<p>Lista de imagenes</p>
+
+<ng-container *ngFor="let foto of imagenes">
+    <mat-card *ngIf="foto.Foto1">
+      <img [src]="'data:image/png;base64,' + foto.Foto1" alt="Imagen 1">
+    </mat-card>
+    <mat-card *ngIf="foto.Foto2">
+      <img [src]="'data:image/png;base64,' + foto.Foto2" alt="Imagen 2">
+    </mat-card>
+    <mat-card *ngIf="foto.Foto3">
+      <img [src]="'data:image/png;base64,' + foto.Foto3" alt="Imagen 3">
+    </mat-card>
+    <mat-card *ngIf="foto.Foto4">
+      <img [src]="'data:image/png;base64,' + foto.Foto4" alt="Imagen 4">
+    </mat-card>
+    <mat-card *ngIf="foto.Foto5">
+      <img [src]="'data:image/png;base64,' + foto.Foto5" alt="Imagen 5">
+    </mat-card>
+    <mat-card *ngIf="foto.Foto6">
+      <img [src]="'data:image/png;base64,' + foto.Foto6" alt="Imagen 6">
+    </mat-card>
+  </ng-container>

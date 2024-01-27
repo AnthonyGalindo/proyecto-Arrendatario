@@ -1,0 +1,34 @@
+body{
+    background-color: black;
+}
+
+h1.gra1{
+  margin-top:2rem;
+    text-align: center;
+    color: rgba(76, 22, 184, 0.945);
+    font-size: xx-large;
+}
+
+h2{
+  text-align: center;
+  margin-top: 2rem;
+}
+
+div{
+
+    width: 900px;
+    height: 550px;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+canvas{
+    background-color: rgba(244, 244, 244, 0.206);
+    margin-top: 40px;
+}
+
+p{
+ background-color: rgb(9, 33, 214);
+}
+/* app-line-chart{
+  background-color: black;
+} */

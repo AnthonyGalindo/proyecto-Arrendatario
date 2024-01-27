@@ -1,0 +1,55 @@
+<!-- <p>login-page works!</p> -->
+
+
+
+<span class="text-lg mb-4">Login</span>
+
+
+<form [formGroup]="formularioLogin" (ngSubmit)="login()">
+
+<div class="flex flex-column">
+
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input type="text" matInput placeholder="Email" formControlName="email" >
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>Contraseña</mat-label>
+    <input type="password" matInput placeholder="Contraseña" formControlName="password">
+  </mat-form-field>
+
+  <section class="example-section mb-4">
+    <mat-checkbox class="example-margin" formControlName="remenber">Recordar</mat-checkbox>
+  </section>
+
+  <div class="row">
+    <div class="col text-danger">
+      <p *ngIf="campoNoValido('email')" >El email es obligatorio</p>
+      <p *ngIf="campoNoValido('password')" >El nombre es obligatorio</p>
+    </div>
+  </div>
+
+
+  <button mat-button mat-flat-button color="primary">
+    <mat-icon>save</mat-icon>
+    Ingresar
+  </button>
+
+</div>
+
+
+</form>
+
+
+  <div class="flex justify-content-end mt-5">
+    <a routerLink="/auth/Registrarse">Registrarse</a>
+  </div>
+
+  <!-- <div>
+    <a routerLink="/auth/sid/propiedades"> mapa</a>
+  </div> -->
+
+

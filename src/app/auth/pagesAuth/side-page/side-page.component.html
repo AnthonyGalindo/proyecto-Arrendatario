@@ -1,0 +1,84 @@
+<p>side-page works!</p>
+
+ <mat-sidenav-container fullscreen class="algo">
+  <mat-sidenav #sidenav mode="push" [ngStyle]="{width: '250px'}">
+    <mat-toolbar>
+      <span>Menu</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()"   >
+          <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+<!-- 
+    <mat-nav-list>
+      <mat-list-item
+      *ngFor="let item of sidebarItems"
+      [routerLink]="item.url"
+      (click)="sidenav.toggle()"
+      >
+         <mat-icon>{{item.icon}}</mat-icon>
+          {{item.label}}
+      </mat-list-item>
+    </mat-nav-list> -->
+
+    <mat-nav-list>
+      <ng-container *ngFor="let item of sidebarItems">
+        <ng-container *ngIf="mostrarItem(item)">
+          <mat-list-item [routerLink]="item.url" (click)="sidenav.toggle()">
+            <mat-icon>{{item.icon}}</mat-icon>
+            {{item.label}}
+          </mat-list-item>
+        </ng-container>
+      </ng-container>
+    </mat-nav-list>
+
+
+
+
+  </mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+
+    <span class="spacer"></span>
+
+
+
+
+  <!-- Lógica condicional para mostrar la imagen o el ícono -->
+  <ng-container *ngIf="userImage; else iconTemplate">
+    <img [src]="userImage" class="profile-avatar" alt="User Image">
+  </ng-container>
+  <ng-template #iconTemplate>
+    <mat-icon class="profile-icon">account_circle</mat-icon>
+  </ng-template>
+
+
+  <button mat-button [matMenuTriggerFor]="moreOptionsMenu">
+    {{nameUser }}
+  </button>
+      <mat-menu #moreOptionsMenu="matMenu">
+        <button mat-menu-item  *ngFor="let listado of moreOptionsMenuItems" (click)="listado.action()">
+          {{listado.label}}
+        </button>
+      </mat-menu>
+
+
+
+  </mat-toolbar>
+
+
+  <div class="container-xxl">
+
+    <router-outlet></router-outlet>
+  </div>
+
+
+</mat-sidenav-container>
+
+
+
+

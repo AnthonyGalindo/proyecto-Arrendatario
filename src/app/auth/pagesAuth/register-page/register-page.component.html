@@ -1,0 +1,72 @@
+
+
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="flex flex-column">
+
+    <span class="text-lg mb-4">Registro</span>
+
+    <mat-form-field>
+      <mat-label>Usuario</mat-label>
+      <input matInput placeholder="Nombre de usuario" formControlName="usuario">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Contraseña</mat-label>
+      <input matInput placeholder="Contraseña" formControlName="contrasena" type="password">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirmar Contraseña</mat-label>
+      <input matInput placeholder="Confirmar Contraseña" formControlName="confirmarContrasena" type="password">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Correo Electronico</mat-label>
+      <input matInput placeholder="Correo Electronico" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Numero de Telefono</mat-label>
+      <input matInput placeholder="Número de Teléfono" formControlName="telefono">
+    </mat-form-field>
+
+
+   <!-- Utiliza el mat-select en tu componente -->
+<!-- app.component.html -->
+<mat-form-field>
+  <mat-label>Escoja el tipo de cuenta</mat-label>
+  <mat-select formControlName="tipoDeCuenta">
+    <mat-option *ngFor="let opcion of opciones" [value]="opcion.valor">
+      {{ opcion.etiqueta }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  
+
+
+    <div class="row">
+      <div class="col text-danger">
+          <p *ngIf="campoNoValido('usuario')" >El nombre es obligatorio</p>
+          <p *ngIf="campoNoValido('email')" >El email es obligatorio</p>
+          <p *ngIf="campoNoValido('telefono')" >El telefono es obligatorio</p>
+          <p *ngIf="validarContrasenass()">Las contraseñas no coinciden</p>
+      </div>
+    </div>
+
+    <button mat-button mat-flat-button color="primary" type="submit">
+      <mat-icon>save</mat-icon>
+      Crear cuenta
+    </button>
+
+  </div>
+</form>
+
+<div class="flex justify-content-end mt-5">
+  <a routerLink="/auth/login">Ya tienes Cuenta ?</a>
+</div>
+
+
+
+
+
+

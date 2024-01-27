@@ -1,0 +1,23 @@
+<!-- profile-dialog.component.html -->
+
+<h1 mat-dialog-title>Cambiar foto de Perfil</h1>
+<div mat-dialog-content>
+  <form [formGroup]="profileForm" (submit)="saveChanges()">
+      <div>
+        <button type="button" mat-button (click)="handleFileInput()" class="custom-file-input-label">Seleccionar Imagen</button>
+      </div>
+      <div class="imagenPre">
+        <img *ngIf="imageUrl" [src]="imageUrl" alt="User Image" style="width: 150px; height: 150px;">
+      </div>
+    <div class="divBotones">
+        <div>
+          <button mat-button type="submit">Guardar Cambios</button>
+        </div>
+        <div mat-dialog-actions>
+          <button mat-button (click)="onNoClick()" type="button">Cerrar</button>
+        </div>
+    </div>
+  </form>
+
+
+</div>

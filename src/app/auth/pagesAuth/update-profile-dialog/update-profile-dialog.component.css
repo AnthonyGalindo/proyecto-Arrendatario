@@ -1,0 +1,24 @@
+
+.form-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+ /* Ajusta la altura según tus necesidades */
+}
+
+.form-wrapper {
+  display: flex;
+  gap: 90px; /* Espacio entre los formularios */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.butCerrar{
+  margin-left: 60px;
+  margin-top: 150px;
+}

@@ -1,0 +1,43 @@
+<h2 class="fs-3 mt-3 text-center text-secondary"> Administrar Apartamentos</h2>
+
+<div class="row mt-2">
+  <div class=""></div>
+
+  <div class="col">
+
+      <div class="row">
+
+        <!-- Houses -->
+        <div *ngFor="let apart of nuevoApartamentos;"  class="col-4 mb-2">
+
+          <div class="card">
+
+
+            <div class="card-body">
+              <img src="{{apart.foto1}}" alt="" width="100%" height="250rem">
+              <h5 class="card-title text-primary text-lg mt-3">Descripcion: {{apart.Nombre_apart}}</h5>
+              <p class="card-text  text-success text-lg">PRECIO: ${{ apart.Precio_apart }}</p>
+
+              <div class="mb-3">
+                <button type="button" class="btn btn-success estado mb-2 " *ngIf="!apart.Estado_apart" (click)="actualizarEstado(apart.Id_apartamento, true)">Arrendado</button>
+                <span class="fs-5 text-success ml-2" *ngIf="!apart.Estado_apart">Se Encuentra Disponible</span>
+                <button type="button" class="btn btn-success estado mb-2 " *ngIf="apart.Estado_apart" (click)="actualizarEstado(apart.Id_apartamento, false)">Disponible</button>
+                <span class="fs-5 text-danger ml-2" *ngIf="apart.Estado_apart">Se Encuentra Arrendado</span>
+              </div>
+
+
+              <button type="button" class="btn btn-primary mr-4" (click)="editarApartamento(apart.Id_apartamento)">Editar</button>
+              <button type="button" class="btn btn-danger"   (click)="eliminarApartamento(apart.Id_apartamento)">Eliminar</button>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+
+
+  </div>
+</div>

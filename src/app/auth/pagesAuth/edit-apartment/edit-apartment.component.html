@@ -1,0 +1,164 @@
+
+<!-- <app-caracteristicas></app-caracteristicas> -->
+
+
+<form [formGroup]="formApartmentEdit" (ngSubmit)="actualizarApartamento()" class="blues">
+  <div class="flex flex-column" >
+      <span class="fs-3 mb-4 text-center">Editar Apartamento</span>
+
+
+      <mat-form-field>
+        <mat-label>Descripcion del apartamento</mat-label>
+        <input matInput placeholder="Descripcion" formControlName="descripcion">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Precio del apartamento</mat-label>
+        <input matInput placeholder="Precio" formControlName="precio" type="number">
+      </mat-form-field>
+
+
+      <div class="row">
+        <div class="col text-danger">
+            <p *ngIf="campoNoValido('descripcion')" >La descripcion es obligatorio</p>
+            <p *ngIf="campoNoValido('precio')" >El precio es obligatorio</p>
+
+        </div>
+      </div>
+        <button  mat-button mat-flat-button color="primary" (click)="irAMarcador()" class="custom-button" type="button" >
+          Agregar Ubicacion
+        </button>
+
+    <!-- Cracteristicas-->
+    <span class="text-lg mb-4">Caracteristicas del Apartamento:</span>
+    <mat-form-field>
+      <mat-label>Numero de Habitaciones</mat-label>
+      <input matInput placeholder="Numero de Habitaciones" formControlName="nHabitaciones" type="number">
+    </mat-form-field>
+    <div class="checkbox-container mb-4">
+      <section class="example-section d-flex">
+        <mat-checkbox class="example-margin ancho mb-3" formControlName="aCompartido">
+        <span class="fs-4">Apartamento Compartido </span>
+        </mat-checkbox>
+        <mat-checkbox class="example-margin ancho" formControlName="aCocina">
+        <span class="fs-4"> Cocina</span>
+        </mat-checkbox>
+        <mat-checkbox class="example-margin ancho" formControlName="aDucha">
+          <span class="fs-4">Ducha</span>
+        </mat-checkbox>
+      </section>
+
+      <section class="example-section d-flex">
+        <mat-checkbox class="example-margin ancho" formControlName="aBanoIndependiente">
+          <span class="fs-4"> Baño Independiente</span>
+        </mat-checkbox>
+        <mat-checkbox class="example-margin ancho" formControlName="aAmoblado">
+          <span class="fs-4">Amoblado</span>
+        </mat-checkbox>
+      </section>
+    </div>
+
+  <!-- Servicios -->
+  <span class="text-lg mb-4">Servicios Incluidos:</span>
+  <div class="container">
+    <div class="checkbox-container">
+      <section class="example-section d-flex">
+        <mat-checkbox class="example-margin ancho" formControlName="luz">
+          <span class="fs-4">Luz</span>
+        </mat-checkbox>
+        <mat-checkbox class="example-margin ancho" formControlName="agua">
+          <span class="fs-4">Agua</span>
+        </mat-checkbox>
+        <mat-checkbox class="example-margin ancho" formControlName="telefono">
+          <span class="fs-4">Telefono</span>
+        </mat-checkbox>
+      </section>
+      <section class="example-section d-flex">
+        <mat-checkbox class="example-margin ancho" formControlName="garage">
+          <span class="fs-4">Garage</span>
+        </mat-checkbox>
+        <mat-checkbox class="example-margin ancho" formControlName="gas">
+          <span class="fs-4">Gas</span>
+        </mat-checkbox>
+        <mat-checkbox class="example-margin ancho" formControlName="desayuno">
+          <span class="fs-4">Desayuno</span>
+        </mat-checkbox>
+      </section>
+      <section class="example-section d-flex">
+        <mat-checkbox class="example-margin ancho" formControlName="almuerzo">
+          <span class="fs-4">Almuerzo</span>
+        </mat-checkbox>
+        <mat-checkbox class="example-margin ancho" formControlName="merienda">
+          <span class="fs-4">Merienda</span>
+        </mat-checkbox>
+      </section>
+    </div>
+  </div>
+
+    <!-- Condiciones -->
+    <span class="text-lg mb-4 mt-5">Se Permite:</span>
+    <div class="container">
+      <div class="checkbox-container">
+        <section class="example-section d-flex">
+          <mat-checkbox class="example-margin ancho" formControlName="permite_Mascotas">
+            <span class="fs-4">Mascotas</span>
+          </mat-checkbox>
+          <mat-checkbox class="example-margin ancho" formControlName="permite_Fiestas">
+            <span class="fs-4">Fiestas</span>
+          </mat-checkbox>
+        </section>
+        <section class="example-section d-flex">
+          <mat-checkbox class="example-margin ancho" formControlName="permite_MusicaAltoVolumen">
+            <span class="fs-4">MusicaAltoVolumen</span>
+          </mat-checkbox>
+          <mat-checkbox class="example-margin ancho" formControlName="permite_Tomar">
+            <span class="fs-4">Tomar</span>
+          </mat-checkbox>
+          <mat-checkbox class="example-margin ancho" formControlName="permite_Fumar">
+            <span class="fs-4">Fumar</span>
+          </mat-checkbox>
+        </section>
+      </div>
+    </div>
+
+    <!-- imagenes -->
+    <span class="text-lg mb-4 mt-5">Imagenes del departamento:</span>
+    <div  class="container mb-5">
+      <input  class="p-1 pl-0 btn-primary" type="file" (change)="onFileSelected($event)" multiple accept="image/*" />
+    </div>
+    <!-- <button (click)="uploadImages()">Subir Imágenes</button> -->
+
+    <!-- Visualización de las imágenes seleccionadas (opcional) -->
+    <div *ngIf="selectedFiles && selectedFiles.length > 0" class="mb-5">
+      <h3>Imágenes Seleccionadas:</h3>
+      <div class="row">
+          <div *ngFor="let file of selectedFiles" class="col-md-4 mb-3">
+              <div class="text-center">
+                  <img [src]="getImgUrl(file)" alt="{{ file.name }}" class="img-thumbnail custom-img">
+                  <p class="mt-2">{{ file.name }}</p>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Imagenes de la base de datos que ya tiene -->
+    <div *ngIf="arrayImagenesMostrar && arrayImagenesMostrar.length > 0 && imagenesBaseMostrar" class="mb-5">
+      <div class="row">
+          <div *ngFor="let file of arrayImagenesMostrar" class="col-md-4 mb-3">
+              <div class="text-center">
+                  <img [src]="file" alt="imagen" class="img-thumbnail custom-img">
+                  <!-- <p class="mt-2"></p> -->
+              </div>
+          </div>
+      </div>
+    </div>
+
+      <button mat-button mat-flat-button color="primary" type="submit" class="custom-button2">
+        <mat-icon>save</mat-icon>
+        Actualizar Apartamento
+      </button>
+
+    </div>
+  </form>
+
+
